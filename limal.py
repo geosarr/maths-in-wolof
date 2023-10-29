@@ -1,6 +1,6 @@
 import click
 
-# Lim yu jitu ci been been yi, fukk fukk yi, 
+# Lim yu jitu ci been been yi, fukk fukk yi,
 # téeméer téemer yi, juuni juuni yi
 LIM = {
     0: "tus",
@@ -15,16 +15,31 @@ LIM = {
     1000: "junni",
 }
 
-def fukk_fukku(q: int) -> str:
-    if q !=1 and q!=3:
-        return f"{limal(q)}-{limal(10)}"
-    return LIM[q*10]
 
-def been_beenu(r: int) -> str:
-    return '-ak-' + limal(r) if r> 0 else ''
+def been_beenu(b: int) -> str:
+    assert 0 <= b < 10
+    return f"-ak-{limal(b)}" if b > 0 else ""
 
-def teemeer_teemeeru(n: int) -> str:
-    return 
+
+def fukk_fukku(f: int) -> str:
+    assert 0 < f < 10
+    if f != 1 and f != 3:
+        return f"{limal(f)}-{limal(10)}"
+    return limal(f * 10)
+
+
+def teemeer_teemeeru(t: int) -> str:
+    assert 0 < t < 10
+    if t != 1:
+        return f"{limal(t)}-{limal(100)}"
+    return limal(100)
+
+
+def junni_junniu(t: int) -> str:
+    assert 0 < t < 1000
+    if t != 1:
+        return f"{limal(t)}-{limal(1000)}"
+    return limal(1000)
 
 
 def limal(n: int) -> str:
@@ -36,18 +51,19 @@ def limal(n: int) -> str:
     elif n < 100:
         return f"{fukk_fukku(n//10)}{been_beenu(n%10)}"
     elif n < 1000:
-        return 'test'
+        return f"{teemeer_teemeeru(n//100)}-ak-{limal(n%100)}"
+    elif n < 1e6:
+        return f"{junni_junniu(n//1000)}-ak-{limal(n%1000)}"
 
-    
+
 @click.command()
-@click.option(
-    "--lim", "-l", required=True, type=int
-)
+@click.option("--lim", "-l", required=True, type=int)
 def main(lim: int):
     # result = limal(lim)
-    for a in range(100):
-        print(limal(a))
+    for a in range(1, 1000000):
+        print(a, ";", limal(a))
     # return result
+
 
 if __name__ == "__main__":
     main()
