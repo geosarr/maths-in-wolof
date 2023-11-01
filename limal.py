@@ -13,7 +13,8 @@ LIM = {
     30: "fanweer",
     100: "téeméer",
     1000: "junni",
-    1000000: "milliong",
+    int(1e6): "milliong",
+    int(1e9): "milliard",
 }
 
 

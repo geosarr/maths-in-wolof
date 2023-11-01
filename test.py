@@ -26,6 +26,11 @@ class TestLimal(unittest.TestCase):
             limal(283496736),
             "ñaar-téeméer-ak-juròom-ñatt-fukk-ak-ñatt-milliong-ak-ñeent-téeméer-ak-juròom-ñeent-fukk-ak-juròom-been-junni-ak-juròom-ñaar-téeméer-ak-fanweer-ak-juròom-been",
         )
+        self.assertEqual(limal(int(1e9)), "milliard")
+        self.assertEqual(
+            limal(103010038510),
+            "téeméer-ak-ñatt-milliard-ak-fukk-milliong-ak-fanweer-ak-juròom-ñatt-junni-ak-juròom-téeméer-ak-fukk",
+        )
 
 
 if __name__ == "__main__":
