@@ -69,10 +69,8 @@ def limal(n: int) -> str:
 @click.command()
 @click.option("--lim", "-l", required=True, type=int)
 def main(lim: int):
-    # result = limal(lim)
-    for a in range(1, 1000000):
-        print(a, ";", limal(a))
-    # return result
+    for a in range(lim):
+        print(a, ":", limal(a))
 
 
 if __name__ == "__main__":
