@@ -1,0 +1,11 @@
+main.aux
+main.fdb_latexmk
+main.fls
+main.log
+main.synctex.gz
+main.out
+# .gitignore
+.vscode
+*.csv
+__pycache__
+main.pdf
